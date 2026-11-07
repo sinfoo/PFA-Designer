@@ -1,0 +1,27 @@
+\begin{titlepage}
+\thispagestyle{empty}\setstretch{1}\centering
+\newgeometry{top=1.6cm,bottom=1.6cm,left=2cm,right=2cm}
+\newcommand{\optlogo}[2]{\IfFileExists{#1}{\includegraphics[height=#2]{#1}}{\rule{0pt}{#2}}}
+{\sffamily\scriptsize\color{mute}\RMinistry\par}\vspace{4pt}
+\begin{minipage}{.3\linewidth}\raggedright\optlogo{\RLogoLeft}{2.2cm}\end{minipage}%
+\hfill\begin{minipage}{.38\linewidth}\centering{\sffamily\bfseries\small \RSchool\par}{\sffamily\scriptsize\color{mute}\RUniversity}\end{minipage}%
+\hfill\begin{minipage}{.3\linewidth}\raggedleft\optlogo{\RLogoRight}{2.2cm}\end{minipage}
+\vspace{1.6cm}
+{\color{accent}\rule{\linewidth}{1.6pt}}\\[10pt]
+{\sffamily\bfseries\large\color{accent}\MakeUppercase{\RKind}}\\[4pt]
+{\sffamily\small\color{mute}\RDiploma\ ---\ \RSpecialty\ ---\ \RClass}
+\vfill
+\begin{tcolorbox}[enhanced,colback=accentsoft,colframe=accent,boxrule=0pt,leftrule=0pt,toprule=2pt,arc=0pt,width=\linewidth,left=14pt,right=14pt,top=18pt,bottom=18pt]
+\centering{\sffamily\bfseries\fontsize{26}{31}\selectfont\color{ink}\RTitle\par}\vspace{8pt}
+{\sffamily\large\color{mute}\RSubtitle\par}
+\end{tcolorbox}
+\vfill
+\begin{tabularx}{\linewidth}{@{}X X@{}}
+{\sffamily\small\color{accent}\textbf{Réalisé par}}\par\vspace{3pt}{\large\RAuthors} &
+{\sffamily\small\color{accent}\textbf{Encadré par}}\par\vspace{3pt}{\large\RSupervisors}
+\end{tabularx}
+\vspace{1.4cm}
+{\color{accent}\rule{\linewidth}{.6pt}}\\[6pt]
+{\sffamily\bfseries\color{accent}Année universitaire \RYear}
+\restoregeometry
+\end{titlepage}

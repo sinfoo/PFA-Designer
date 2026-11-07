@@ -1,0 +1,28 @@
+\documentclass[12pt,a4paper,oneside]{report}   % twoside only if the school binds recto-verso
+\input{meta}
+\input{preamble}
+\hypersetup{pdftitle={\RTitle},pdfauthor={\RAuthors}}
+\begin{document}
+\input{cover}
+\pagenumbering{roman}
+\input{sections/00-dedicace}
+\input{sections/00-remerciements}
+\input{sections/00-resume}
+\tableofcontents
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{Table des figures}\listoffigures
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{Liste des tableaux}\listoftables
+\input{sections/00-acronymes}
+\cleardoublepage
+\pagenumbering{arabic}\setcounter{page}{1}
+\input{sections/01-introduction}
+\input{sections/10-chapitre1}
+\input{sections/20-chapitre2}
+\input{sections/30-chapitre3}
+\input{sections/40-chapitre4}
+\input{sections/50-chapitre5}
+\input{sections/90-conclusion}
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{Bibliographie}
+\printbibliography[heading=none]
+\appendix
+\input{sections/99-annexes}
+\end{document}

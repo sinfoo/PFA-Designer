@@ -1,0 +1,16 @@
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.xdv
+*.fls
+*.fdb_latexmk
+main.pdf
+__pycache__/
+rapport/

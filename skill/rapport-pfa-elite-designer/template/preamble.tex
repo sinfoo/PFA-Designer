@@ -1,0 +1,79 @@
+% ===== PREAMBLE — XeLaTeX. Build: latexmk -xelatex main.tex =====
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}                 % Times-compatible: schools ask Times 12
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}[Scale=0.88]
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=15pt,footskip=1.1cm]{geometry}
+\usepackage{microtype,setspace,xcolor,graphicx,etoolbox,float,array,tabularx,longtable,booktabs,multirow,enumitem,pdfpages,emptypage}
+\usepackage{amsmath,amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,fit,calc,backgrounds,decorations.pathreplacing}
+\usepackage{pgfgantt}
+\usepackage[font=small,labelfont={bf,color=accent},labelsep=period,justification=centering]{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr,titlesec}
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\usepackage{listings}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+\definecolor{accent}{HTML}{\RAccent}\definecolor{ink}{HTML}{1A1A1A}\definecolor{mute}{HTML}{6B7280}\definecolor{paper}{HTML}{F4F6F8}
+\colorlet{accentsoft}{accent!10}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+
+% spacing: Tunisian guides ask 1.5 body. Set to 1.25 only if the school allows.
+\newcommand{\BodySpacing}{1.5}
+\setstretch{\BodySpacing}
+\setlength{\parindent}{1.2em}\setlength{\parskip}{0pt}
+\widowpenalty=10000\clubpenalty=10000\raggedbottom
+
+% headings: 3 levels max shown in TOC
+\setcounter{secnumdepth}{3}\setcounter{tocdepth}{2}
+\titleformat{\chapter}[display]{\sffamily\bfseries}
+  {\color{accent}\fontsize{54}{54}\selectfont\thechapter}{4pt}
+  {\fontsize{24}{28}\selectfont\color{ink}}[\vspace{6pt}{\color{accent}\titlerule[2.2pt]}]
+\titleformat{name=\chapter,numberless}[display]{\sffamily\bfseries}{}{0pt}
+  {\fontsize{24}{28}\selectfont\color{ink}}[\vspace{6pt}{\color{accent}\titlerule[2.2pt]}]
+\titlespacing*{\chapter}{0pt}{20pt}{36pt}
+\titleformat{\section}{\sffamily\bfseries\Large\color{accent}}{\thesection}{.7em}{}
+\titlespacing*{\section}{0pt}{24pt}{10pt}
+\titleformat{\subsection}{\sffamily\bfseries\large\color{ink}}{\thesubsection}{.7em}{}
+\titlespacing*{\subsection}{0pt}{16pt}{6pt}
+\titleformat{\subsubsection}{\sffamily\bfseries\normalsize\color{mute}}{\thesubsubsection}{.7em}{}
+\titlespacing*{\subsubsection}{0pt}{12pt}{4pt}
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+% header / footer: chapter title top (<=40 chars), page + author bottom, 10pt
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{.4pt}\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\sffamily\fontsize{10}{12}\selectfont\color{mute}\nouppercase{\leftmark}}
+\fancyhead[R]{\sffamily\fontsize{10}{12}\selectfont\color{mute}\RYear}
+\fancyfoot[L]{\sffamily\fontsize{10}{12}\selectfont\color{mute}\RAuthors}
+\fancyfoot[R]{\sffamily\fontsize{10}{12}\selectfont\color{accent}\thepage}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[R]{\sffamily\fontsize{10}{12}\selectfont\color{accent}\thepage}\renewcommand{\headrulewidth}{0pt}}
+\renewcommand{\chaptermark}[1]{\markboth{\ifnum\value{chapter}>0 \thechapter.\ \fi #1}{}}
+
+% callouts
+\tcbset{calloutstyle/.style={enhanced,breakable,colback=accentsoft,colframe=accent,boxrule=0pt,leftrule=3pt,arc=0pt,
+  left=10pt,right=8pt,top=6pt,bottom=6pt,fonttitle=\sffamily\bfseries,coltitle=accent,colbacktitle=accentsoft,attach boxed title to top left={yshift=-2mm},boxed title style={boxrule=0pt,arc=0pt}}}
+\newtcolorbox{cadre}[1][]{calloutstyle,title=#1}
+\newtcolorbox{definition}[1][]{calloutstyle,colback=paper,colframe=mute,coltitle=ink,colbacktitle=paper,title={Définition #1}}
+
+% code listings (short excerpts only, <=15 lines)
+\lstdefinestyle{pfa}{basicstyle=\ttfamily\fontsize{8.5}{10.5}\selectfont,backgroundcolor=\color{paper},frame=l,framerule=2pt,rulecolor=\color{accent},
+  keywordstyle=\color{accent}\bfseries,commentstyle=\color{mute}\itshape,stringstyle=\color{teal!70!black},numbers=left,numberstyle=\tiny\color{mute},
+  xleftmargin=1.6em,breaklines=true,showstringspaces=false,tabsize=2,captionpos=b,aboveskip=8pt,belowskip=8pt,inputencoding=utf8,extendedchars=true}
+\lstset{style=pfa}
+
+% helpers
+\newcommand{\acro}[2]{#1 & #2\\}                    % abbreviations table row
+\newcommand{\figurefile}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{#1}\caption{#3}\end{figure}}
+\newcommand{\source}[1]{\par\vspace{-4pt}{\small\color{mute}\textit{Source : #1}}\par}
+\newcommand{\chapterintro}[1]{\begin{cadre}[Dans ce chapitre]\setstretch{1.15}\small #1\end{cadre}\vspace{6pt}}
+\newcommand{\chapterconclusion}[1]{\section*{Conclusion}#1}
+% French ordinal for \RClass : \ieme
+\providecommand{\ieme}{\textsuperscript{e}}
+
+\addbibresource{references.bib}

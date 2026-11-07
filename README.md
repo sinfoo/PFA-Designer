@@ -28,7 +28,7 @@ Honest limits: no public ESPRIT PFA grid, no INSAT/ENIT margin rules and no real
 | `SKILL.md` | The workflow: recon → interview → chapter plan → scaffold → diagrams → write → build + QA → handoff |
 | `reference/structure.md` | Front-to-back structure, page budgets, chapter plans for web, mobile, ML, IoT, network/DevOps, industrial, civil/mech |
 | `reference/front-matter-fr.md` | Patterns for cover, dédicace, remerciements, résumé/abstract, introduction, conclusion |
-| `reference/humanized-writing.md` | Voice rules, concrete-detail rule, cliché list, citation and originality rules |
+| `reference/humanized-writing.md` | Voice rules, concrete-detail rule, French AI-tell patterns (humanizer-based), citation and originality rules |
 | `reference/analysis-playbook.md` | What to extract from a repo and which chapter each fact goes in |
 | `reference/design-system.md` | Margins, fonts, hierarchy, colours, callouts, French typography |
 | `reference/diagrams.md` | Code → diagram mapping, TikZ starter, figure checklist |

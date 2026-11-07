@@ -21,7 +21,7 @@ Builds a complete, beautifully typeset French PFA/PFE report **from the project 
 3. **Pick the chapter plan** by project type from `reference/structure.md` (web, mobile, ML/data, IoT/embedded, network/devops, other). Set page budget (PFA default 35–60 body pages; school limit wins).
 4. **Scaffold**: copy `template/` to `<project>/rapport/` (never inside source dirs that ship), fill `meta.tex`, replace `sections/*.tex` placeholders. Template compiles as-is (`bash scripts/build.sh`).
 5. **Diagrams** from real code (`reference/diagrams.md`): use-case, architecture, class/ER from actual models, sequence for 2–3 key flows, deployment, Gantt from git/sprints. Screenshots: ask the user for them or run the app if feasible (`run` skill); otherwise leave a captioned `[CAPTURE À INSÉRER]` placeholder.
-6. **Write** chapter by chapter, intro + conclusion of each chapter, using `reference/humanized-writing.md` (voice, rhythm, banned patterns, concrete-detail rule) and `reference/front-matter-fr.md` (dédicace, remerciements, résumé/abstract, introduction, conclusion patterns).
+6. **Write** chapter by chapter, intro + conclusion of each chapter, using `reference/humanized-writing.md` (voice, rhythm, humanizer-based French AI-tell patterns, concrete-detail rule) — run its 4-step method (mark tells, rewrite without adding facts, read aloud, re-scan) on each chapter before the lint and `reference/front-matter-fr.md` (dédicace, remerciements, résumé/abstract, introduction, conclusion patterns).
 7. **Build + QA**: `bash scripts/build.sh` → `python scripts/lint_report.py rapport/` (placeholders left, empty sections, figures never referenced, French typography, AI-tell phrases, repeated openings, citation coverage, page count vs budget). Render 6–8 pages to PNG and look at them (cover, TOC, a chapter opener, a figure page, a table page, bibliography). Fix, rebuild.
 8. **Handoff**: path to PDF + `.tex`, list of `[À COMPLÉTER]` items, list of claims to double-check, defense-prep questions (`reference/evaluation.md`). Commit only if the user asks.
 
@@ -40,7 +40,7 @@ Builds a complete, beautifully typeset French PFA/PFE report **from the project 
 ## Files
 - `reference/structure.md` — real-report structure, chapter plans per project type, page budgets, per-chapter contents
 - `reference/front-matter-fr.md` — wording patterns and templates for cover, dédicace, remerciements, résumé, intro, conclusion
-- `reference/humanized-writing.md` — authentic-voice rules, AI-tell list, concrete-detail rule, originality & citations
+- `reference/humanized-writing.md` — authentic-voice rules, humanizer-derived French AI-tell patterns, concrete-detail rule, originality & citations
 - `reference/analysis-playbook.md` — what to extract per stack and where each fact goes in the report
 - `reference/design-system.md` — layout numbers, palettes, typography, cover, callouts, French typography rules
 - `reference/diagrams.md` — TikZ/matplotlib recipes, code→diagram mapping, figure rules

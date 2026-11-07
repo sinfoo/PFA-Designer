@@ -65,7 +65,7 @@ Adapted from the `humanizer` skill (blader/humanizer, MIT; itself based on Wikip
 
 **When not to act.** Leave a watched phrase inside a quotation, a title, a proper name, or a passage that discusses the phrase. Keep what carries the student's voice: a specific odd detail, mixed feelings (« je pense que c'était le bon choix, mais… »), a first-person choice they can explain, a genuine aside.
 
-**Method (per chapter, before the lint).** 1) Mark the tells, strongest first, looking at paragraph shape as well as sentences. 2) Rewrite keeping every supported claim; add no fact, number, date, name or citation the repo or the student did not give. 3) Read aloud, then search again for the tells that survive a rewrite: *pas X mais Y*, one-line closers, triplets, dashes, bold labels. 4) Write the final version in plain, varied French; if a sentence stays awkward, rewrite the paragraph around its point.
+**Method (per chapter, before the lint).** 1) Mark the tells, strongest first, looking at paragraph shape as well as sentences. 2) Snapshot the chapter, then rewrite keeping every supported claim; add no fact, number, date, name or citation the repo or the student did not give (`lint_report.py --facts-diff <snapshot>` enforces it). 3) Read aloud, then search again for the tells that survive a rewrite: *pas X mais Y*, one-line closers, triplets, dashes, bold labels. 4) Write the final version in plain, varied French; if a sentence stays awkward, rewrite the paragraph around its point.
 
 ## 5. Originality & citations
 - Definitions/state-of-the-art: paraphrase *from a source you read*, then cite [n]. Never paste. Quote (« … » + [n] + page) only for short exact wording.
